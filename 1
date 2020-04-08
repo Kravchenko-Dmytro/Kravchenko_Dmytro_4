@@ -1,0 +1,109 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+
+namespace program1
+{
+    public abstract class IPtah
+    {
+         public int Vik { get; set; }
+        public void Ptah(int vik)
+        {
+            Vik = vik;
+        }
+       
+    }
+    public class Nelit_Ptah: IPtah
+    {
+        public int Shvydkist { get; set; }
+        public void Nelit_ptah(int shvydkist)
+        {
+            Shvydkist = shvydkist;
+       }
+      
+    }
+    public class Straus:Nelit_Ptah
+    {
+      
+    }
+    public class Pingvin : Nelit_Ptah
+    {
+         
+    }
+    public class Lit_Ptah : IPtah
+    {
+        public int Vysota { get; set; }
+        public void Lit_ptah(int vysota)
+        {
+            Vysota = vysota;
+        }
+    }
+    public class Orel : Lit_Ptah
+    {
+     
+    }
+    public class Papuga : Lit_Ptah
+    {
+
+    }
+    
+    
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введіть вік та швидкість бігу страуса та пінгвіна й вік та висоту польоту орла та папуги");
+            Straus s = new Straus();
+            s.Ptah(Convert.ToInt32(Console.ReadLine()));
+            s.Nelit_ptah( Convert.ToInt32(Console.ReadLine()));
+            Pingvin p = new Pingvin();
+            p.Ptah(Convert.ToInt32(Console.ReadLine()));
+            p.Nelit_ptah(Convert.ToInt32(Console.ReadLine()));
+            Orel o = new Orel();
+            o.Ptah(Convert.ToInt32(Console.ReadLine()));
+            o.Lit_ptah(Convert.ToInt32(Console.ReadLine()));
+            Papuga pa = new Papuga();
+            pa.Ptah(Convert.ToInt32(Console.ReadLine()));
+            pa.Lit_ptah(Convert.ToInt32(Console.ReadLine()));
+            Console.WriteLine("Найбільша кількість років");
+            if (s.Vik>=p.Vik & s.Vik>=o.Vik & s.Vik>=pa.Vik)
+            {
+                Console.WriteLine(s.Vik);
+            }
+            if (p.Vik >= s.Vik & p.Vik >= o.Vik & p.Vik >= pa.Vik)
+            {
+                Console.WriteLine(p.Vik);
+            }
+            if (o.Vik >= p.Vik & o.Vik >= s.Vik & o.Vik >= pa.Vik)
+            {
+                Console.WriteLine(o.Vik);
+            }
+            if (pa.Vik >= p.Vik & pa.Vik >= o.Vik & pa.Vik >= s.Vik)
+            {
+                Console.WriteLine(pa.Vik);
+            }
+            Console.WriteLine("Найвища швидкість бігу");
+            if (s.Shvydkist >= p.Shvydkist)
+            {
+                Console.WriteLine(s.Shvydkist);
+            }
+            else
+            {
+                Console.WriteLine(p.Shvydkist);
+            }
+            Console.WriteLine("Найвища висота польоту");
+            if (o.Vysota >= pa.Vysota)
+            {
+                Console.WriteLine(o.Vysota);
+            }
+            else
+            {
+                Console.WriteLine(pa.Vysota);
+            }
+            Console.ReadKey();
+        }
+
+    }
+
+}
